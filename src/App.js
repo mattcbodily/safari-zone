@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import TrainerMenu from './Components/TrainerMenu';
 import WildPokemon from './Components/WildPokemon';
 import axios from 'axios';
 import './App.css';
@@ -27,9 +28,9 @@ findPokemon = () => {
 }
 
   render(){
-    console.log(this.state.wildPokemon)
     return (
       <div className="App">
+        <TrainerMenu />
         <WildPokemon pokemon={this.state.wildPokemon} shinyNum={this.state.shinyNum}/>
       </div>
     );
