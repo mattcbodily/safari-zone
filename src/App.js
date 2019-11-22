@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TrainerMenu from './Components/TrainerMenu';
 import WildPokemon from './Components/WildPokemon';
+import CatchMenu from './Components/CatchMenu';
 import axios from 'axios';
 import './App.css';
 
@@ -32,6 +33,7 @@ findPokemon = () => {
       <div className="App">
         <TrainerMenu />
         <WildPokemon pokemon={this.state.wildPokemon} shinyNum={this.state.shinyNum}/>
+        <CatchMenu />
       </div>
     );
   }

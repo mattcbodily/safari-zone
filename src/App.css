@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
 .App {
   height: 100vh;
   background-image: url('./assets/safari-zone-background-two.png');
   background-size: cover;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
 }
 
 .trainer-menu {
@@ -17,7 +21,9 @@
 
 .menu-icon {
   width: 50px;
+  cursor: pointer;
 }
+
 
 .menu-icon:hover {
   animation-name: bounce;
@@ -25,6 +31,24 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+.catch-menu {
+  height: 65px;
+  width: 400px;
+  background-color: black;
+  opacity: .9;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  border-radius: 10px 0px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.catch-menu-prompt {
+  cursor: pointer;
 }
 
 .wild-pokemon {
