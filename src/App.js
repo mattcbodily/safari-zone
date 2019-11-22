@@ -10,12 +10,21 @@ class App extends Component {
     super();
     this.state = {
         wildPokemon: {},
-        shinyNum: 0
+        shinyNum: 0,
+        pokedex: []
     }
 }
 
 componentDidMount(){
-    this.findPokemon()
+  this.getPokedex()
+  this.findPokemon()
+}
+
+getPokedex = () => {
+  axios.get('/api/pokedex').then(res => {
+    this.setState({pokedex: res.data})
+  })
+  .catch(err => console.log(err))
 }
 
 findPokemon = () => {
@@ -33,7 +42,7 @@ findPokemon = () => {
       <div className="App">
         <TrainerMenu />
         <WildPokemon pokemon={this.state.wildPokemon} shinyNum={this.state.shinyNum}/>
-        <CatchMenu />
+        <CatchMenu findFn={this.findPokemon}/>
       </div>
     );
   }

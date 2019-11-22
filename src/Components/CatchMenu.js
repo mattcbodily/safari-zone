@@ -6,7 +6,7 @@ class CatchMenu extends Component {
             <div className='catch-menu'>
                 <p className='catch-menu-prompt'>Bait</p>
                 <p className='catch-menu-prompt'>Pokéball</p>
-                <p className='catch-menu-prompt'>Next</p>
+                <p className='catch-menu-prompt' onClick={this.props.findFn}>Next</p>
             </div>
         )
     }
