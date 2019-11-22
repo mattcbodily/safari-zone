@@ -45,7 +45,6 @@
   animation-name: pokedex;
   animation-duration: 100ms;
   animation-timing-function: linear;
-  overflow-y: scroll;
 }
 
 .pokedex {
