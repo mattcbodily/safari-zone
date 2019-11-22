@@ -7,7 +7,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-        wildPokemon: {}
+        wildPokemon: {},
+        shinyNum: 0
     }
 }
 
@@ -20,12 +21,16 @@ findPokemon = () => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${randNum}`)
     .then(res => {this.setState({wildPokemon: res.data})})
     .catch(err => console.log(err));
+
+    const shinyNum = Math.ceil(Math.random() * 100);
+    this.setState({shinyNum})
 }
 
   render(){
+    console.log(this.state.wildPokemon)
     return (
       <div className="App">
-        <WildPokemon pokemon={this.state.wildPokemon}/>
+        <WildPokemon pokemon={this.state.wildPokemon} shinyNum={this.state.shinyNum}/>
       </div>
     );
   }
