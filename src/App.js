@@ -38,11 +38,12 @@ findPokemon = () => {
 }
 
   render(){
+    const {wildPokemon, shinyNum, pokedex} = this.state;
     return (
       <div className="App">
-        <TrainerMenu />
-        <WildPokemon pokemon={this.state.wildPokemon} shinyNum={this.state.shinyNum}/>
-        <CatchMenu findFn={this.findPokemon}/>
+        <TrainerMenu pokedex={pokedex}/>
+        <WildPokemon pokemon={wildPokemon} shinyNum={shinyNum}/>
+        <CatchMenu pokemon={wildPokemon} findFn={this.findPokemon} pokedexFn={this.getPokedex}/>
       </div>
     );
   }

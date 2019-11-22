@@ -32,6 +32,19 @@
   animation-direction: alternate;
 }
 
+.pokedex {
+  height: calc(100vh - 65px);
+  width: 350px;
+  background-color: rgb(0,0,0, 0.8);
+  position: fixed;
+  top: 65px;
+  left: 0px;
+  border-radius: 0px 10px 0px 0px;
+  animation-name: pokedex;
+  animation-duration: 100ms;
+  animation-timing-function: linear;
+}
+
 .catch-menu {
   height: 65px;
   width: 400px;
@@ -91,5 +104,14 @@
   } 
   to {
     transform: translateY(5px);
+  }
+}
+
+@keyframes pokedex {
+  from {
+    left: -350px;
+  }
+  to {
+    left: 0px;
   }
 }
