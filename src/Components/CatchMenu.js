@@ -5,32 +5,35 @@ class CatchMenu extends Component {
     constructor(props){
         super(props);
         this.state = {
-            legendary: ['Articuno', 'Moltres', 'Zapdos', 'Mew', 'Mewtwo']
+            legendary: ['Articuno', 'Moltres', 'Zapdos', 'Mew', 'Mewtwo'],
+            catchScore: 0
         }
+    }
+
+    componentDidUpdate(){
+        const {legendary, catchScore} = this.state;
+        const {pokemon} = this.props;
+        if(catchScore === 0)
+            if(legendary.includes(pokemon.name)){
+                this.setState({catchScore: 100})
+            } else if(pokemon.base_experience > 200 && pokemon.base_experience <= 300) {
+                this.setState({catchScore: 80})
+            } else if(pokemon.base_experience > 150 && pokemon.base_experience <= 200){
+                this.setState({catchScore: 60})
+            } else if(pokemon.base_experience > 100 && pokemon.base_experience <= 150){
+                this.setState({catchScore: 40})
+            } else if(pokemon.base_experience <= 100){
+                this.setState({catchScore: 20})
+            }
+    }
+
+    throwBait = () => {
+
     }
 
     catchPokemon = () => {
-        const {legendary} = this.state;
-        const {pokemon} = this.props;
-        let catchScore = 0;
-
-        if(legendary.includes(pokemon.name)){
-            catchScore = 100;
-        } else if(pokemon.base_experience > 200 && pokemon.base_experience <= 300) {
-            catchScore = 80;
-        } else if(pokemon.base_experience > 150 && pokemon.base_experience <= 200){
-            catchScore = 60;
-        } else if(pokemon.base_experience > 100 && pokemon.base_experience <= 150){
-            catchScore = 40;
-        } else if(pokemon.base_experience <= 100){
-            catchScore = 20
-        }
-
-        this.catchCallback(catchScore)
-    }
-
-    catchCallback = (catchScore) => {
-        const {pokemon, shinyNum, pokedexFn} = this.props;
+        const {catchScore} = this.state;
+        const {pokemon, shinyNum, pokedexFn, findFn} = this.props;
         let catchNum = Math.ceil(Math.random() * 100);
         if(catchNum >= catchScore){
             const body = {
@@ -41,8 +44,15 @@ class CatchMenu extends Component {
                 pokedexFn()
             })
             .catch(err => console.log(err))
+            findFn();
        } else {
-           alert('So close!')
+           let fleeNum = Math.ceil(Math.random() * 10)
+           if(fleeNum <= 4){
+               alert(`${pokemon.name} fled`)
+               findFn()
+           } else {
+               alert(`So Close`)
+           }
        }
     }
 
