@@ -43,7 +43,7 @@ findPokemon = () => {
       <div className="App">
         <TrainerMenu pokedex={pokedex}/>
         <WildPokemon pokemon={wildPokemon} shinyNum={shinyNum}/>
-        <CatchMenu pokemon={wildPokemon} findFn={this.findPokemon} pokedexFn={this.getPokedex}/>
+        <CatchMenu pokemon={wildPokemon} shinyNum={shinyNum} findFn={this.findPokemon} pokedexFn={this.getPokedex}/>
       </div>
     );
   }
