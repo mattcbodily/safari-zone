@@ -32,7 +32,7 @@
   animation-direction: alternate;
 }
 
-.pokedex {
+.pokedex, .inventory {
   height: calc(100vh - 65px);
   width: 350px;
   background-color: rgb(0,0,0, 0.8);
