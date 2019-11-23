@@ -5,15 +5,15 @@ class CatchMenu extends Component {
     constructor(props){
         super(props);
         this.state = {
-            legendary: ['Articuno', 'Moltres', 'Zapdos', 'Mew', 'Mewtwo'],
+            legendary: ['articuno', 'moltres', 'zapdos', 'mew', 'mewtwo'],
             catchScore: 0
         }
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps){
         const {legendary, catchScore} = this.state;
         const {pokemon} = this.props;
-        if(catchScore === 0)
+        if(catchScore === 0 || pokemon.name !== prevProps.pokemon.name)
             if(legendary.includes(pokemon.name)){
                 this.setState({catchScore: 100})
             } else if(pokemon.base_experience > 200 && pokemon.base_experience <= 300) {
@@ -28,7 +28,15 @@ class CatchMenu extends Component {
     }
 
     throwBait = () => {
-
+        const {catchScore} = this.state;
+        const {pokemon, findFn} = this.props;
+        let fleeNum = Math.ceil(Math.random() * 10);
+        if(fleeNum <= 3){
+            alert(`${pokemon.name} fled`)
+            findFn();
+        } else {
+            this.setState({catchScore: catchScore - 5})
+        }
     }
 
     catchPokemon = () => {
@@ -57,9 +65,10 @@ class CatchMenu extends Component {
     }
 
     render(){
+        console.log(this.state.catchScore)
         return(
             <div className='catch-menu'>
-                <p className='catch-menu-prompt'>Bait</p>
+                <p className='catch-menu-prompt' onClick={this.throwBait}>Bait</p>
                 <p className='catch-menu-prompt' onClick={this.catchPokemon}>Pokéball</p>
                 <p className='catch-menu-prompt' onClick={this.props.findFn}>Next</p>
             </div>
