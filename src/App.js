@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
         wildPokemon: {},
         shinyNum: 0,
-        pokedex: []
+        pokedex: [],
+        inventory: [{name: 'Great Ball', image: 'http://pixelartmaker.com/art/a56a64f1b2b6379.png', qty: 10}]
     }
 }
 
@@ -38,12 +39,20 @@ findPokemon = () => {
 }
 
   render(){
-    const {wildPokemon, shinyNum, pokedex} = this.state;
+    const {wildPokemon, shinyNum, pokedex, inventory} = this.state;
     return (
       <div className="App">
-        <TrainerMenu pokedex={pokedex}/>
-        <WildPokemon pokemon={wildPokemon} shinyNum={shinyNum}/>
-        <CatchMenu pokemon={wildPokemon} shinyNum={shinyNum} findFn={this.findPokemon} pokedexFn={this.getPokedex}/>
+        <TrainerMenu 
+          pokedex={pokedex}
+          inventory={inventory}/>
+        <WildPokemon 
+          pokemon={wildPokemon} 
+          shinyNum={shinyNum}/>
+        <CatchMenu 
+          pokemon={wildPokemon} 
+          shinyNum={shinyNum} 
+          findFn={this.findPokemon} 
+          pokedexFn={this.getPokedex}/>
       </div>
     );
   }

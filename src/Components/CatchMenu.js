@@ -65,7 +65,6 @@ class CatchMenu extends Component {
     }
 
     render(){
-        console.log(this.state.catchScore)
         return(
             <div className='catch-menu'>
                 <p className='catch-menu-prompt' onClick={this.throwBait}>Bait</p>

@@ -51,11 +51,23 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  overflow-y: scroll;
 }
 
 .caught-pokemon {
   margin: 20px 10px;
   text-align: center;
+}
+
+.inventory-item {
+  margin: 20px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.inventory-item img {
+  width: 40px;
+  margin-right: 10px;
 }
 
 .caught-pokemon img {
