@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import pokeball from '../assets/pokeball.png';
 
 class CatchMenu extends Component {
     constructor(props){
@@ -70,6 +71,7 @@ class CatchMenu extends Component {
                 <p className='catch-menu-prompt' onClick={this.throwBait}>Bait</p>
                 <p className='catch-menu-prompt' onClick={this.catchPokemon}>Pokéball</p>
                 <p className='catch-menu-prompt' onClick={this.props.findFn}>Next</p>
+                <img src={pokeball} alt='pokéball' className='pokeball'/>
             </div>
         )
     }

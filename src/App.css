@@ -63,6 +63,7 @@
   margin: 20px 10px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .inventory-item img {
@@ -94,6 +95,13 @@
 
 .catch-menu-prompt {
   cursor: pointer;
+}
+
+.pokeball {
+  width: 25px;
+  position: fixed;
+  bottom: 40vh;
+  left: -30px;
 }
 
 .wild-pokemon {
