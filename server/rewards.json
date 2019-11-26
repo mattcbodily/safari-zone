@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Great Ball",
+        "type": "common",
+        "qty": 1
+    },
+    {
+        "id": 2,
+        "name": "Cheri Berry",
+        "type": "common",
+        "qty": 1
+    },
+    {
+        "id": 3,
+        "name": "PokéDollars",
+        "type": "common",
+        "qty": 50
+    }
+]
