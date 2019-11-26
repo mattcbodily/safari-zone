@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 let initialState = {
     inventory: [],
     loading: false,
@@ -6,10 +8,11 @@ let initialState = {
 
 const GET_INVENTORY = 'GET_INVENTORY';
 
-export function getInventory(inventoryObj){
+export function getInventory(){
+    const inventory = axios.get('/api/inventory').then(res => res.data).catch(err => err.message);
     return {
         type: GET_INVENTORY,
-        payload: inventoryObj
+        payload: inventory
     }
 }
 
