@@ -2,19 +2,85 @@
     {
         "id": 1,
         "name": "Great Ball",
-        "type": "common",
-        "qty": 1
+        "qty": 1,
+        "type": "common"
     },
     {
         "id": 2,
         "name": "Cheri Berry",
-        "type": "common",
-        "qty": 1
+        "qty": 1,
+        "type": "common"
     },
     {
         "id": 3,
-        "name": "PokéDollars",
-        "type": "common",
-        "qty": 50
+        "name": "PokéDollar",
+        "qty": 50,
+        "type": "common"
+    },
+    {
+        "id": 4,
+        "name": "Great Ball",
+        "qty": 5,
+        "type": "uncommon"
+    },
+    {
+        "id": 5,
+        "name": "Cheri Berry",
+        "qty": 5,
+        "type": "uncommon"
+    },
+    {
+        "id": 6,
+        "name": "Ultra Ball",
+        "qty": 1,
+        "type": "uncommon"
+    },
+    {
+        "id": 7,
+        "name": "Sitrus Berry",
+        "qty": 1,
+        "type": "uncommon"
+    },
+    {
+        "id": 8,
+        "name": "PokéDollar",
+        "qty": 100,
+        "type": "uncommon"
+    },
+    {
+        "id": 9,
+        "name": "Ultra Ball",
+        "qty": 5,
+        "type": "rare"
+    },
+    {
+        "id": 10,
+        "name": "Sitrus Berry",
+        "qty": 5,
+        "type": "rare"
+    },
+    {
+        "id": 11,
+        "name": "Rare Candy",
+        "qty": 1,
+        "type": "rare"
+    },
+    {
+        "id": 12,
+        "name": "PokéDollar",
+        "qty": 250,
+        "type": "rare"
+    },
+    {
+        "id": 13,
+        "name": "Master Ball",
+        "qty": 1,
+        "type": "legendary"
+    },
+    {
+        "id": 14,
+        "name": "PokéDollar",
+        "qty": 500,
+        "type": "legendary"
     }
 ]
