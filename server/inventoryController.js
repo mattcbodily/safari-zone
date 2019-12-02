@@ -16,7 +16,12 @@ module.exports = {
         if(inventoryCheck !== -1){
             inventory[inventoryCheck].qty += reward.qty
         } else {
-            inventory.push(reward)
+            let restructuredReward = {
+                name: reward.name,
+                image: reward.image,
+                qty: reward.qty
+            }
+            inventory.push(restructuredReward)
         }
         res.status(200).send(inventory)
     }
