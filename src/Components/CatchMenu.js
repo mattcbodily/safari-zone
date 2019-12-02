@@ -51,6 +51,7 @@ class CatchMenu extends Component {
             }
             axios.post('/api/pokemon', body).then(res => {
                 pokedexFn()
+                this.handleRewards()
             })
             .catch(err => console.log(err))
             findFn();
@@ -66,7 +67,10 @@ class CatchMenu extends Component {
     }
 
     handleRewards = () => {
-        
+        let rewardNum = Math.ceil(Math.random() * 14);
+        axios.get(`/api/reward/${rewardNum}`).then(res => {
+            console.log(res)
+        })
     }
 
     render(){
