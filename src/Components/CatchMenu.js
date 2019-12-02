@@ -65,6 +65,10 @@ class CatchMenu extends Component {
        }
     }
 
+    handleRewards = () => {
+        
+    }
+
     render(){
         return(
             <div className='catch-menu'>
