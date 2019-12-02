@@ -23,6 +23,6 @@ module.exports = {
             }
             inventory.push(restructuredReward)
         }
-        res.status(200).send(inventory)
+        res.sendStatus(200)
     }
 };

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import axios from 'axios';
+import {getInventory} from '../redux/inventoryReducer';
 import pokeball from '../assets/pokeball.png';
 
 class CatchMenu extends Component {
@@ -70,19 +72,19 @@ class CatchMenu extends Component {
         let rewardNum = Math.ceil(Math.random() * 1000);
         if(rewardNum > 0 && rewardNum < 700){
             axios.get(`/api/reward/${Math.ceil(Math.random() * 3)}`).then(res => {
-                console.log(res)
+                this.props.getInventory()
             })
         } else if(rewardNum >= 700 && rewardNum < 900){
             axios.get(`/api/reward/${Math.floor(Math.random() * (8 - 4)) + 4}`).then(res => {
-                console.log(res)
+                this.props.getInventory()
             })
         } else if(rewardNum >= 900 && rewardNum < 995){
             axios.get(`/api/reward/${Math.floor(Math.random() * (12 - 9)) + 9}`).then(res => {
-                console.log(res)
+                this.props.getInventory()
             })
         } else if(rewardNum >= 995 && rewardNum <= 1000){
             axios.get(`/api/reward/${Math.floor(Math.random() * (14 - 13)) + 13}`).then(res => {
-                console.log(res)
+                this.props.getInventory()
             })
         }
     }
@@ -99,4 +101,4 @@ class CatchMenu extends Component {
     }
 }
 
-export default CatchMenu;
+export default connect(null, {getInventory})(CatchMenu);
