@@ -11,7 +11,6 @@ module.exports = {
     },
     getReward: (req, res) => {
         const {id} = req.params;
-        console.log(id)
         let reward = rewards.find(element => element.id === +id);
         res.status(200).send(reward)
     }
