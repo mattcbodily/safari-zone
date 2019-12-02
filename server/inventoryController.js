@@ -12,6 +12,12 @@ module.exports = {
     getReward: (req, res) => {
         const {id} = req.params;
         let reward = rewards.find(element => element.id === +id);
-        res.status(200).send(reward)
+        let inventoryCheck = inventory.findIndex(element => element.name === reward.name);
+        if(inventoryCheck !== -1){
+            inventory[inventoryCheck].qty += reward.qty
+        } else {
+            inventory.push(reward)
+        }
+        res.status(200).send(inventory)
     }
 };
