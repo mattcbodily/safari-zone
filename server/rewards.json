@@ -4,6 +4,7 @@
         "name": "Great Ball",
         "image": "http://pixelartmaker.com/art/a56a64f1b2b6379.png",
         "qty": 1,
+        "category": "ball",
         "type": "common"
     },
     {
@@ -11,6 +12,7 @@
         "name": "Cheri Berry",
         "image": "https://i.pinimg.com/originals/0d/30/4d/0d304d5291bd2f437c4982f636da75c7.png",
         "qty": 1,
+        "category": "berry",
         "type": "common"
     },
     {
@@ -18,6 +20,7 @@
         "name": "PokéDollar",
         "image": "https://res.cloudinary.com/teepublic/image/private/s--O3OvyFHG--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1538621304/production/designs/3255711_0.jpg",
         "qty": 50,
+        "category": "money",
         "type": "common"
     },
     {
@@ -25,6 +28,7 @@
         "name": "Great Ball",
         "image": "http://pixelartmaker.com/art/a56a64f1b2b6379.png",
         "qty": 5,
+        "category": "ball",
         "type": "uncommon"
     },
     {
@@ -32,6 +36,7 @@
         "name": "Cheri Berry",
         "image": "https://i.pinimg.com/originals/0d/30/4d/0d304d5291bd2f437c4982f636da75c7.png",
         "qty": 5,
+        "category": "berry",
         "type": "uncommon"
     },
     {
@@ -39,6 +44,7 @@
         "name": "Ultra Ball",
         "image": "https://art.pixilart.com/ba64fb62ce50d97.png",
         "qty": 1,
+        "category": "ball",
         "type": "uncommon"
     },
     {
@@ -46,6 +52,7 @@
         "name": "Sitrus Berry",
         "image": "https://vignette.wikia.nocookie.net/ethereal-gates/images/b/b9/Sitrus_Berry_Art.png/revision/latest?cb=20161128043904",
         "qty": 1,
+        "category": "berry",
         "type": "uncommon"
     },
     {
@@ -53,6 +60,7 @@
         "name": "PokéDollar",
         "image": "https://res.cloudinary.com/teepublic/image/private/s--O3OvyFHG--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1538621304/production/designs/3255711_0.jpg",
         "qty": 100,
+        "category": "money",
         "type": "uncommon"
     },
     {
@@ -67,6 +75,7 @@
         "name": "Sitrus Berry",
         "image": "https://vignette.wikia.nocookie.net/ethereal-gates/images/b/b9/Sitrus_Berry_Art.png/revision/latest?cb=20161128043904",
         "qty": 5,
+        "category": "berry",
         "type": "rare"
     },
     {
@@ -74,6 +83,7 @@
         "name": "Rare Candy",
         "image": "https://2.bp.blogspot.com/-TfcHmRTJscQ/US19hAyEP-I/AAAAAAAAAT4/H9xKvwrLgt4/s1600/rcintro.png",
         "qty": 1,
+        "category": "berry",
         "type": "rare"
     },
     {
@@ -81,6 +91,7 @@
         "name": "PokéDollar",
         "image": "https://res.cloudinary.com/teepublic/image/private/s--O3OvyFHG--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1538621304/production/designs/3255711_0.jpg",
         "qty": 250,
+        "category": "money",
         "type": "rare"
     },
     {
@@ -88,6 +99,7 @@
         "name": "Master Ball",
         "image": "https://www.pikpng.com/pngl/m/161-1611070_master-ball-8-bit-pixel-art-pokemon-hd.png",
         "qty": 1,
+        "category": "ball",
         "type": "legendary"
     },
     {
@@ -95,6 +107,7 @@
         "name": "PokéDollar",
         "image": "https://res.cloudinary.com/teepublic/image/private/s--O3OvyFHG--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1538621304/production/designs/3255711_0.jpg",
         "qty": 500,
+        "category": "money",
         "type": "legendary"
     }
 ]

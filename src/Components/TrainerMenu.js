@@ -34,7 +34,7 @@ class TrainerMenu extends Component {
                 <img src={pokedex} alt='pokedex' className='menu-icon' onClick={this.togglePokedexView}/>
                 <img src={pokeball} alt='pokeball' className='menu-icon' onClick={this.toggleInventoryView}/>
                 {togglePokedex ? <Pokedex pokedex={this.props.pokedex}/> : null}
-                {toggleInventory ? <Inventory inventory={this.props.inventory}/> : null}
+                {toggleInventory ? <Inventory inventory={this.props.inventory} baitFn={this.props.baitFn} catchFn={this.props.catchFn} rewardFn={this.props.rewardFn}/> : null}
             </div>
         )
     }

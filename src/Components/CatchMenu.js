@@ -31,22 +31,37 @@ class CatchMenu extends Component {
             }
     }
 
-    throwBait = () => {
+    throwBait = (berry = null) => {
         const {catchScore} = this.state;
         const {pokemon, findFn} = this.props;
         let fleeNum = Math.ceil(Math.random() * 10);
         if(fleeNum <= 3){
             alert(`${pokemon.name} fled`)
             findFn();
+        } else if(berry === 'Cheri Berry'){
+            this.setState({catchScore: catchScore - 10})
+        } else if(berry === 'Sitrus Berry'){
+            this.setState({catchScore: catchScore - 15})
+        } else if(berry === 'Rare Candy'){
+            this.setState({catchScore: catchScore - 20})
         } else {
             this.setState({catchScore: catchScore - 5})
         }
     }
 
-    catchPokemon = () => {
+    catchPokemon = (rewardFn, ball = null) => {
         const {catchScore} = this.state;
         const {pokemon, shinyNum, pokedexFn, findFn} = this.props;
         let catchNum = Math.ceil(Math.random() * 100);
+        console.log(catchNum)
+        if(ball === 'Great Ball'){
+            catchNum += 10
+        } else if(ball === 'Ultra Ball'){
+            catchNum += 20
+        } else if(ball === 'Master Ball'){
+            catchNum = 100
+        }
+        console.log(catchNum)
         if(catchNum >= catchScore){
             const body = {
                 name: pokemon.name,
@@ -54,7 +69,7 @@ class CatchMenu extends Component {
             }
             axios.post('/api/pokemon', body).then(res => {
                 pokedexFn()
-                this.handleRewards()
+                rewardFn()
             })
             .catch(err => console.log(err))
             findFn();
@@ -93,11 +108,15 @@ class CatchMenu extends Component {
     render(){
         return(
             <div className='catch-menu'>
+                <TrainerMenu
+                    pokedex={this.props.pokedex} 
+                    baitFn={this.throwBait}
+                    catchFn={this.catchPokemon}
+                    rewardFn={this.handleRewards}/>
                 <p className='catch-menu-prompt' onClick={this.throwBait}>Bait</p>
-                <p className='catch-menu-prompt' onClick={this.catchPokemon}>Pokéball</p>
+                <p className='catch-menu-prompt' onClick={() => this.catchPokemon(this.handleRewards)}>Pokéball</p>
                 <p className='catch-menu-prompt' onClick={this.props.findFn}>Next</p>
                 <img src={pokeball} alt='pokéball' className='pokeball'/>
-                <TrainerMenu />
             </div>
         )
     }
