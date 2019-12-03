@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import TrainerMenu from './TrainerMenu';
 import {getInventory} from '../redux/inventoryReducer';
 import pokeball from '../assets/pokeball.png';
 
@@ -96,6 +97,7 @@ class CatchMenu extends Component {
                 <p className='catch-menu-prompt' onClick={this.catchPokemon}>Pokéball</p>
                 <p className='catch-menu-prompt' onClick={this.props.findFn}>Next</p>
                 <img src={pokeball} alt='pokéball' className='pokeball'/>
+                <TrainerMenu />
             </div>
         )
     }

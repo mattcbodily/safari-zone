@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {getInventory} from '../redux/inventoryReducer';
 import Pokedex from './Pokedex';
 import Inventory from './Inventory';
 import pokedex from '../assets/pokedex-icon.png';
@@ -11,6 +13,10 @@ class TrainerMenu extends Component {
             togglePokedex: false,
             toggleInventory: false
         }
+    }
+
+    componentDidMount = () => {
+        this.props.getInventory()
     }
 
     togglePokedexView = () => {
@@ -34,4 +40,13 @@ class TrainerMenu extends Component {
     }
 }
 
-export default TrainerMenu;
+const mapStateToProps = (reduxState) => {
+    const {inventory, loading, errorMessage} = reduxState;
+    return {
+      inventory,
+      loading,
+      errorMessage
+    }
+}
+
+export default connect(mapStateToProps, {getInventory})(TrainerMenu);

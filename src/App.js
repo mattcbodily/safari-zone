@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {getInventory} from './redux/inventoryReducer';
-import TrainerMenu from './Components/TrainerMenu';
 import WildPokemon from './Components/WildPokemon';
 import CatchMenu from './Components/CatchMenu';
 import axios from 'axios';
@@ -20,7 +17,6 @@ class App extends Component {
 componentDidMount(){
   this.getPokedex()
   this.findPokemon()
-  this.props.getInventory()
 }
 
 getPokedex = () => {
@@ -42,18 +38,15 @@ findPokemon = () => {
 
   render(){
     const {wildPokemon, shinyNum, pokedex} = this.state;
-    const {inventory} = this.props;
     return (
       <div className="App">
-        <TrainerMenu 
-          pokedex={pokedex}
-          inventory={inventory}/>
         <WildPokemon 
           pokemon={wildPokemon} 
           shinyNum={shinyNum}/>
         <CatchMenu 
           pokemon={wildPokemon} 
           shinyNum={shinyNum} 
+          pokedex={pokedex}
           findFn={this.findPokemon} 
           pokedexFn={this.getPokedex}/>
       </div>
@@ -61,13 +54,4 @@ findPokemon = () => {
   }
 }
 
-const mapStateToProps = (reduxState) => {
-  const {inventory, loading, errorMessage} = reduxState;
-  return {
-    inventory,
-    loading,
-    errorMessage
-  }
-}
-
-export default connect(mapStateToProps, {getInventory})(App);
+export default App;
