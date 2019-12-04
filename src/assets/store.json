@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Great Ball",
+        "category": "ball",
+        "image": "http://pixelartmaker.com/art/a56a64f1b2b6379.png",
+        "price": 200
+    },
+    {
+        "name": "Cheri Berry",
+        "category": "berry",
+        "image": "https://i.pinimg.com/originals/0d/30/4d/0d304d5291bd2f437c4982f636da75c7.png",
+        "price": 200
+    },
+    {
+        "name": "Ultra Ball",
+        "category": "ball",
+        "image": "https://art.pixilart.com/ba64fb62ce50d97.png",
+        "price": 500
+    },
+    {
+        "name": "Sitrus Berry",
+        "category": "Berry",
+        "image": "https://vignette.wikia.nocookie.net/ethereal-gates/images/b/b9/Sitrus_Berry_Art.png/revision/latest?cb=20161128043904",
+        "price": 500
+    }
+]
