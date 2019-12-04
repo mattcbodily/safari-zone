@@ -25,5 +25,14 @@ module.exports = {
             inventory.push(restructuredReward)
         }
         res.sendStatus(200)
+    },
+    useItem: (req, res) => {
+        const {name} = req.params;
+        let usedItem = inventory.findIndex(item => item.name === name);
+        inventory[usedItem].qty = inventory[usedItem].qty - 1;
+        if(inventory[usedItem].qty === 0){
+            inventory.splice(usedItem, 1)
+        }
+        res.sendStatus(200);
     }
 };

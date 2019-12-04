@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import TrainerMenu from './TrainerMenu';
-import {getInventory} from '../redux/inventoryReducer';
+import {getInventory, useItem} from '../redux/inventoryReducer';
 import pokeball from '../assets/pokeball.png';
 
 class CatchMenu extends Component {
@@ -35,6 +35,7 @@ class CatchMenu extends Component {
         const {catchScore} = this.state;
         const {pokemon, findFn} = this.props;
         let fleeNum = Math.ceil(Math.random() * 10);
+
         if(fleeNum <= 3){
             alert(`${pokemon.name} fled`)
             findFn();
@@ -47,13 +48,17 @@ class CatchMenu extends Component {
         } else {
             this.setState({catchScore: catchScore - 5})
         }
+
+        if(berry !== null){
+            this.useItem(berry)
+        }
     }
 
     catchPokemon = (rewardFn, ball = null) => {
         const {catchScore} = this.state;
         const {pokemon, shinyNum, pokedexFn, findFn} = this.props;
         let catchNum = Math.ceil(Math.random() * 100);
-        console.log(catchNum)
+
         if(ball === 'Great Ball'){
             catchNum += 10
         } else if(ball === 'Ultra Ball'){
@@ -61,7 +66,11 @@ class CatchMenu extends Component {
         } else if(ball === 'Master Ball'){
             catchNum = 100
         }
-        console.log(catchNum)
+
+        if(ball !== null){
+            this.useItem(ball)
+        }
+
         if(catchNum >= catchScore){
             const body = {
                 name: pokemon.name,
@@ -105,6 +114,13 @@ class CatchMenu extends Component {
         }
     }
 
+    useItem = (item) => {
+        axios.post(`/api/inventory/${item}`).then(res => {
+            this.props.getInventory();
+        })
+        .catch(err => console.log(err))
+    }
+
     render(){
         return(
             <div className='catch-menu'>
@@ -122,4 +138,4 @@ class CatchMenu extends Component {
     }
 }
 
-export default connect(null, {getInventory})(CatchMenu);
+export default connect(null, {getInventory, useItem})(CatchMenu);

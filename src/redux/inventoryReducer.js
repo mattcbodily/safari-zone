@@ -34,8 +34,13 @@ export default function inventoryReducer(state = initialState, action){
         case GET_INVENTORY + '_REJECTED':
             return {...state, errorMessage: payload};
         case USE_ITEM:
-            //adjust this to find and remove the used item from state
-            return state;
+            let copyInv = state.inventory.slice()
+            let usedItem = copyInv.findIndex(item => item.name === payload);
+            copyInv[usedItem] = copyInv[usedItem] - 1;
+            if(copyInv[usedItem].qty === 0){
+                copyInv.splice(usedItem, 1);
+            }
+            return {...state, inventory: copyInv};
         default:
             return state;
     }
