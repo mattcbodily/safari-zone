@@ -21,14 +21,32 @@ class TrainerMenu extends Component {
     }
 
     togglePokedexView = () => {
+        if(this.state.toggleInventory){
+            this.setState(prevState => ({toggleInventory: !prevState.toggleInventory}))
+        }
+        if(this.state.togglePokeShop){
+            this.setState(prevState => ({togglePokeShop: !prevState.togglePokeShop}))
+        }
         this.setState(prevState => ({togglePokedex: !prevState.togglePokedex}))
     }
 
     toggleInventoryView = () => {
+        if(this.state.togglePokedex){
+            this.setState(prevState => ({togglePokedex: !prevState.togglePokedex}))
+        }
+        if(this.state.togglePokeShop){
+            this.setState(prevState => ({togglePokeShop: !prevState.togglePokeShop}))
+        }
         this.setState(prevState => ({toggleInventory: !prevState.toggleInventory}))
     }
 
     togglePokeShopView = () => {
+        if(this.state.togglePokedex){
+            this.setState(prevState => ({togglePokedex: !prevState.togglePokedex}))
+        }
+        if(this.state.toggleInventory){
+            this.setState(prevState => ({toggleInventory: !prevState.toggleInventory}))
+        }
         this.setState(prevState => ({togglePokeShop: !prevState.togglePokeShop}))
     }
 
