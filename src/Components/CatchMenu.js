@@ -97,26 +97,26 @@ class CatchMenu extends Component {
         let rewardNum = Math.ceil(Math.random() * 1000);
         if(rewardNum > 0 && rewardNum < 700){
             axios.get(`/api/reward/${Math.ceil(Math.random() * 3)}`).then(res => {
-                this.props.getInventory()
+                this.props.inventoryFn()
             })
         } else if(rewardNum >= 700 && rewardNum < 900){
             axios.get(`/api/reward/${Math.floor(Math.random() * (8 - 4)) + 4}`).then(res => {
-                this.props.getInventory()
+                this.props.inventoryFn()
             })
         } else if(rewardNum >= 900 && rewardNum < 995){
             axios.get(`/api/reward/${Math.floor(Math.random() * (12 - 9)) + 9}`).then(res => {
-                this.props.getInventory()
+                this.props.inventoryFn()
             })
         } else if(rewardNum >= 995 && rewardNum <= 1000){
             axios.get(`/api/reward/${Math.floor(Math.random() * (14 - 13)) + 13}`).then(res => {
-                this.props.getInventory()
+                this.props.inventoryFn()
             })
         }
     }
 
     useItem = (item) => {
         axios.post(`/api/inventory/${item}`).then(res => {
-            this.props.getInventory();
+            this.props.inventoryFn();
         })
         .catch(err => console.log(err))
     }
@@ -125,7 +125,9 @@ class CatchMenu extends Component {
         return(
             <div className='catch-menu'>
                 <TrainerMenu
-                    pokedex={this.props.pokedex} 
+                    inventory={this.props.inventory}
+                    pokedex={this.props.pokedex}
+                    inventoryFn={this.props.inventoryFn} 
                     baitFn={this.throwBait}
                     catchFn={this.catchPokemon}
                     rewardFn={this.handleRewards}/>

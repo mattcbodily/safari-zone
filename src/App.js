@@ -10,13 +10,24 @@ class App extends Component {
     this.state = {
         wildPokemon: {},
         shinyNum: 0,
-        pokedex: []
+        pokedex: [],
+        inventory: []
     }
 }
 
 componentDidMount(){
+  this.getInventory()
   this.getPokedex()
   this.findPokemon()
+}
+
+getInventory = () => {
+  axios.get('/api/inventory').then(res => {
+    this.setState({
+      inventory: res.data
+    })
+  })
+  .catch(err => console.log(err))
 }
 
 getPokedex = () => {
@@ -37,7 +48,7 @@ findPokemon = () => {
 }
 
   render(){
-    const {wildPokemon, shinyNum, pokedex} = this.state;
+    const {wildPokemon, shinyNum, pokedex, inventory} = this.state;
     return (
       <div className="App">
         <WildPokemon 
@@ -46,9 +57,11 @@ findPokemon = () => {
         <CatchMenu 
           pokemon={wildPokemon} 
           shinyNum={shinyNum} 
+          inventory={inventory}
           pokedex={pokedex}
           findFn={this.findPokemon} 
-          pokedexFn={this.getPokedex}/>
+          pokedexFn={this.getPokedex}
+          inventoryFn={this.getInventory}/>
       </div>
     );
   }
