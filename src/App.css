@@ -107,6 +107,11 @@
   left: -30px;
 }
 
+.throw {
+  animation-name: throw;
+  animation-duration: 2s;
+}
+
 .wild-pokemon {
   position: fixed;
   top: 39vh;

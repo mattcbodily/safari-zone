@@ -10,7 +10,8 @@ class CatchMenu extends Component {
         super(props);
         this.state = {
             legendary: ['articuno', 'moltres', 'zapdos', 'mew', 'mewtwo'],
-            catchScore: 0
+            catchScore: 0,
+            throwAnimate: false
         }
     }
 
@@ -134,7 +135,7 @@ class CatchMenu extends Component {
                 <p className='catch-menu-prompt' onClick={this.throwBait}>Bait</p>
                 <p className='catch-menu-prompt' onClick={() => this.catchPokemon(this.handleRewards)}>Pokéball</p>
                 <p className='catch-menu-prompt' onClick={this.props.findFn}>Next</p>
-                <img src={pokeball} alt='pokéball' className='pokeball'/>
+                <img src={pokeball} alt='pokéball' className={this.state.throwAnimate ? 'pokeball' : 'pokeball throw'}/>
             </div>
         )
     }
