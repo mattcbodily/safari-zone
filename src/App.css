@@ -165,3 +165,12 @@
     left: 0px;
   }
 }
+
+@keyframes throw {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    right: 23vw;
+  }
+}

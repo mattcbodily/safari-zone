@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import axios from 'axios';
 import TrainerMenu from './TrainerMenu';
-import {getInventory, useItem} from '../redux/inventoryReducer';
 import pokeball from '../assets/pokeball.png';
 
 class CatchMenu extends Component {
@@ -59,6 +57,7 @@ class CatchMenu extends Component {
         const {catchScore} = this.state;
         const {pokemon, shinyNum, pokedexFn, findFn} = this.props;
         let catchNum = Math.ceil(Math.random() * 100);
+        this.throwAnimation()
 
         if(ball === 'Great Ball'){
             catchNum += 10
@@ -122,6 +121,10 @@ class CatchMenu extends Component {
         .catch(err => console.log(err))
     }
 
+    throwAnimation = () => {
+        this.setState({throwAnimate: !this.state.throwAnimate})
+    }
+
     render(){
         return(
             <div className='catch-menu'>
@@ -141,4 +144,4 @@ class CatchMenu extends Component {
     }
 }
 
-export default connect(null, {getInventory, useItem})(CatchMenu);
+export default CatchMenu;
